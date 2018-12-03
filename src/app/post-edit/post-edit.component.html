@@ -1,0 +1,51 @@
+<mat-card>
+  <form (submit)="onEditPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        ngModel={{post.title}}
+        required
+        #title="ngModel">
+        <mat-error *ngIf="title.invalid">Please enter a recipe name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="content"
+        ngModel={{post.content}}
+        required
+        #content="ngModel">
+      </textarea>
+      <mat-error *ngIf="content.invalid">Please enter ingredients.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="1"
+        name="difficulty"
+        ngModel={{post.difficulty}}
+        required
+        #difficulty="ngModel">
+      </textarea>
+      <mat-error *ngIf="difficulty.invalid">Please enter difficulty of preparing dish.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="1"
+        name="numServings"
+        ngModel={{post.numServings}}
+        required
+        #numServings="ngModel">
+      </textarea>
+      <mat-error *ngIf="numServings.invalid">Please enter the number of servings.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Update Recipe</button>
+  </form>
+</mat-card>
